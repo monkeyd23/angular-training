@@ -1,8 +1,13 @@
 <div class="row">
     <div class="col-md-5">
-        <app-build-list></app-build-list>
+        <app-build-list (buildSelected)="onSelect($event)"></app-build-list>
     </div>
     <div class="col-md-7">
-        <app-build-detail></app-build-detail>
+        <app-build-detail 
+        *ngIf="selectedBuild; else infoText"
+        [build]="selectedBuild"></app-build-detail>
+        <ng-template #infoText>
+            <p>Please select a build !!</p>
+        </ng-template>
     </div>
 </div>
