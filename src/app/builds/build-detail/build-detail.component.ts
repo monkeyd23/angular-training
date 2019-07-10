@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Build } from '../build.model';
+import { BuildService } from '../build.service';
 
 @Component({
   selector: 'app-build-detail',
@@ -10,9 +11,13 @@ export class BuildDetailComponent implements OnInit {
 
   @Input() build: Build;
 
-  constructor() { }
+  constructor(private buildService:BuildService) { }
 
   ngOnInit() {
+  }
+
+  addToShoppingList() {
+    this.buildService.addPartsToShoppingList(this.build.parts);
   }
 
 }

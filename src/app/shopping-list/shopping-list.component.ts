@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Part } from '../shared/part.model';
+import { ShoppingListService } from './shopping-list.service';
 
 @Component({
   selector: 'app-shopping-list',
@@ -7,18 +8,14 @@ import { Part } from '../shared/part.model';
   styleUrls: ['./shopping-list.component.css']
 })
 export class ShoppingListComponent implements OnInit {
-  parts: Part[] = [
-      new Part('Core i5 Processor', 120),
-      new Part('Seagate HDD 1TB', 300)
-  ];
+  parts: Part[];
 
-  constructor() { }
+  constructor(private slService: ShoppingListService) { }
 
   ngOnInit() {
+    this.parts = this.slService.getParts();
+    this.slService.partsChanged
+      .subscribe((parts:Part[]) => this.parts = parts)
   }
-
-  afterPartAdded(part:Part) {
-      this.parts.push(part);
-  }
-
+  
 }

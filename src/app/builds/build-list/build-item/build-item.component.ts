@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Build } from '../../build.model';
+import { BuildService } from '../../build.service';
 
 @Component({
   selector: 'app-build-item',
@@ -9,15 +10,14 @@ import { Build } from '../../build.model';
 export class BuildItemComponent implements OnInit {
 
   @Input() build: Build;
-  @Output() itemSelected = new EventEmitter<void>();
   
-  constructor() { }
+  constructor(private buildService:BuildService) { }
 
   ngOnInit() {
   }
 
   onSelect() {
-    this.itemSelected.emit();
+    this.buildService.buildSelected.emit(this.build);
   }
 
 }
