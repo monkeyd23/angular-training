@@ -1,13 +1,17 @@
 <div class="row">
     <div class="col-xs-12">
-      <button class="btn btn-success">New Build</button>
+      <button
+      (click)="newBuild()" 
+      class="btn btn-success"
+      >New Build</button>
     </div>
   </div>
   <hr>
   <div class="row">
       <div class="col-xs-12">
           <app-build-item 
-          *ngFor="let buildEl of builds"
-          [build] = "buildEl"></app-build-item>
+          *ngFor="let buildEl of builds; let i = index"
+          [build] = "buildEl"
+          [index]="i"></app-build-item>
       </div>
   </div>

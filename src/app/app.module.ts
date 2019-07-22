@@ -11,6 +11,9 @@ import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-ed
 import { HeaderComponent } from './header/header.component';
 import { DropdownDirective } from './shared/dropdown.directive';
 import { ShoppingListService } from './shopping-list/shopping-list.service';
+import { AppRoutingModule } from './app-routing.module';
+import { BuildStartComponent } from './builds/build-start/build-start.component';
+import { BuildEditComponent } from './builds/build-edit/build-edit.component';
 
 @NgModule({
   declarations: [
@@ -22,10 +25,13 @@ import { ShoppingListService } from './shopping-list/shopping-list.service';
     ShoppingListComponent,
     ShoppingEditComponent,
     HeaderComponent,
-    DropdownDirective
+    DropdownDirective,
+    BuildStartComponent,
+    BuildEditComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule
   ],
   providers: [ShoppingListService],
   bootstrap: [AppComponent]

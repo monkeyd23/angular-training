@@ -21,6 +21,10 @@ export class BuildService {
           return this.builds.slice();
       }
 
+      getBuild(index: number) {
+        return this.builds[index];
+      }
+
       addPartsToShoppingList(parts:Part[]) {
         this.slService.addParts(parts);
       }

@@ -3,11 +3,6 @@
         <app-build-list></app-build-list>
     </div>
     <div class="col-md-7">
-        <app-build-detail 
-        *ngIf="selectedBuild; else infoText"
-        [build]="selectedBuild"></app-build-detail>
-        <ng-template #infoText>
-            <p>Please select a build !!</p>
-        </ng-template>
+        <router-outlet></router-outlet>
     </div>
 </div>

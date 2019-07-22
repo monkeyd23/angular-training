@@ -10,14 +10,9 @@ import { BuildService } from '../../build.service';
 export class BuildItemComponent implements OnInit {
 
   @Input() build: Build;
+  @Input() index: number;
   
-  constructor(private buildService:BuildService) { }
-
   ngOnInit() {
-  }
-
-  onSelect() {
-    this.buildService.buildSelected.emit(this.build);
   }
 
 }

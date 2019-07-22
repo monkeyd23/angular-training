@@ -6,9 +6,4 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  currentComponent = 'builds';
-
-  navigate(component: string) {
-      this.currentComponent = component;
-  }
 }
